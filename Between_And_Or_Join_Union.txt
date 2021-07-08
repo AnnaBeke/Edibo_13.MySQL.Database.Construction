@@ -1,0 +1,37 @@
+MySQL: BETWEEN Condition
+
+Description
+The MySQL BETWEEN Condition is used to retrieve values within a range in a SELECT, INSERT, UPDATE, or DELETE statement.
+
+Syntax:
+expression BETWEEN value1 AND value2;
+
+where:
+-expression is a column or calculation.
+-value1 and value2-These values create an inclusive range that expression is compared to.
+
+Note
+The MySQL BETWEEN Condition will return the records where expression is within the range of value1 and value2 (inclusive).
+When using the MySQL BETWEEN Condition with dates, be sure to use the CAST function to explicitly convert the values to dates.
+
+EXAMPLE:
+SELECT *
+FROM contacts
+WHERE contact_id BETWEEN 100 AND 200;
+
+IS EQUIVALENT TO:
+
+SELECT *
+FROM contacts
+WHERE contact_id >= 100
+AND contact_id <= 200;
+
+EXAMPLE WITH DATE:
+SELECT *
+FROM order_details
+WHERE order_date BETWEEN CAST('2014-02-01' AS DATE) AND CAST('2014-02-28' AS DATE);
+
+EXAMPLE WITH NOT OPERATOR:
+SELECT *
+FROM suppliers
+WHERE supplier_id NOT BETWEEN 2000 AND 2999;
